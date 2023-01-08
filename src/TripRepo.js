@@ -1,6 +1,7 @@
 // create a repository for trips related info
 //Trip repo will have all information related to all trips
-import Trip from './src/Trip.js'
+import Trip from './Trip'
+
 class TripRepo {
     constructor (data) {
         this.tripData = data.map(el => new Trip(el))

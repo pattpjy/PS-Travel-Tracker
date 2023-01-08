@@ -1,26 +1,24 @@
 import { expect } from "chai";
 import trips from '../src/data/data-trip'
+import TripRepo from "../src/TripRepo"
+
 
 describe("Trip Repository", () => {
     let tripRepo;
-    let sampleData;
   
     beforeEach(() => {
-      sampleData = trips.map((trip) => {
-        return new Trip(trip);
-      });
-      tripRepo = new TripRepo(sampleData);
+      tripRepo = new TripRepo(trips);
     });
 
     it("should be a function", function () {
       expect(TripRepo).to.be.a("function");
     });
-    it("Should be instance of userRepository", function () {
+    it("Should be instance of TripRepo", function () {
       expect(tripRepo).to.be.an.instanceOf(TripRepo);
     });
-    // it("Should have a user data property", function () {
-    //   expect(userRepo.userData[0]).to.be.an.instanceOf(User);
-    // });
+     it("Should have properties that holds the tripRepo info", function () {
+      expect(tripRepo.tripData).to.deep.equal(trips);
+    });
     // it("Should return user data given an id", function () {
     //   expect(userRepo.getUserData(1)).to.deep.equal(sampleData[0]);
     // });

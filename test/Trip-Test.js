@@ -2,7 +2,7 @@ import { expect } from "chai";
 import trips from "../src/data/data-trip"
 import Trip from "../src/Trip"
 
-describe.only("Trip", () => {
+describe("Trip", () => {
     let trip;
  
     beforeEach(() => {
@@ -17,7 +17,7 @@ describe.only("Trip", () => {
       expect(trip).to.be.an.instanceOf(Trip);
     });
 
-    it("should have properties that holds the trip info", function () {
+    it("Should have properties that holds the trip info", function () {
         expect(trip.date).to.equal("2022/09/16");
       });
 })
