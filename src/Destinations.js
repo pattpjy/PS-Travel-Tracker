@@ -1,6 +1,6 @@
 // create a destination class for a desination info
 
-class destination {
+class Destination {
     constructor(data){
         this.id = data.id,
         this.destination = data.destination,
@@ -11,4 +11,4 @@ class destination {
     }
 }
 
-export default destination
+export default Destination
