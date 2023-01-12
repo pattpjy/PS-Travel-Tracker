@@ -41,10 +41,10 @@ const trips = [
     },
     {
     id: 5,
-    userID: 42,
+    userID: 44,
     destinationID: 29,
     travelers: 3,
-    date: "2022/04/30",
+    date: "2023/04/30",
     duration: 18,
     status: "approved",
     suggestedActivities: [ ]
@@ -94,7 +94,7 @@ const trips = [
     userID: 9,
     destinationID: 50,
     travelers: 6,
-    date: "2022/07/23",
+    date: "2023/07/23",
     duration: 17,
     status: "approved",
     suggestedActivities: [ ]

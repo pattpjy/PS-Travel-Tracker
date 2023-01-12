@@ -1,6 +1,8 @@
 // create a repository for trips related info
 //Trip repo will have all information related to all trips
+import * as dayjs from "dayjs"
 import Trip from './Trip'
+
 
 class TripRepo {
     constructor (data) {
@@ -11,10 +13,14 @@ class TripRepo {
 //Total amount I have spent on trips this year. This should be calculated from the trips data and include a travel agent’s 10% fee
 
  getPastTripsByUserID(userId) {
+    const pastTrip = this.tripData.filter((el) =>{
+        return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === true
+        //el.date (check with dayJS) is false
+    })
+    return pastTrip
     //loop thru this.tripData 
         //filter by userId and date < current date
         // return trips object 
-    console.log('hello')
 }
 
 getUpcomingTripsByUserID(userId) {
