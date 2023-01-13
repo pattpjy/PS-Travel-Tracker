@@ -25,6 +25,10 @@ describe("Trip Repository", () => {
     it("Should return future trips data given userId", function () {
       expect(tripRepo.getUpcomingTripsByUserID(44)[0].id).to.equal(5);
     });
+
+    it("Should return pending trips data given userId", function () {
+      expect(tripRepo.getPendingTripByUserID(9)[0].id).to.equal(10);
+    });
     // it("Should return friends firsts names", function () {
     //   expect(userRepo.getFriendData([1, 2])).to.deep.equal("Luisa, Jarvis");
     // });

@@ -39,6 +39,10 @@ getPendingTripByUserID(userId) {
     //loop thru this.tripData 
         //filter by userId and status === pending
         //return trips object 
+    const pendingTrips = this.tripData.filter((el) => {
+        return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === false && el.status === "pending"
+    })
+    return pendingTrips
 }
 
 calcTripCostCurrYear(userId) {

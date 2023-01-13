@@ -81,7 +81,7 @@ const trips = [
     },
     {
     id: 9,
-    userID: 24,
+    userID: 9,
     destinationID: 19,
     travelers: 5,
     date: "2022/12/19",
@@ -96,7 +96,7 @@ const trips = [
     travelers: 6,
     date: "2023/07/23",
     duration: 17,
-    status: "approved",
+    status: "pending",
     suggestedActivities: [ ]
     },
 ]
