@@ -46,12 +46,19 @@ function viewPastTrip (userID,pom) {
     const pastTrips = tripData.getPastTripsByUserID(userID)
     console.log(pastTrips)
     if(pastTrips.length === 0) {
-        pom.pastTrip.innerText = "No past trip"
+        pom.pastTrip.innerText = "Past Trip : No past trip"
     } else {
-        pom.pastTrip.innerText = pastTrips
+        
+        pastTrips.forEach((tripObj) => {
+            const pTrip = document.createElement("p")
+            pTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
+            pTrip.label = 'Past trip information'
+            pTrip.className = 'pastTrip'
+            pom.pastTrip.appendChild(pTrip)
+        })
+        
+        
     }
-    
-
 }
 
 function viewUpcomingTrip (userID,pom) {
@@ -60,7 +67,13 @@ function viewUpcomingTrip (userID,pom) {
     if(upComingTrips.length === 0){
         pom.upComingTrip.innerText = "No upcoming trip"
     } else {
-        pom.upComingTrip.innerText = upComingTrips
+        upComingTrips.forEach((tripObj) => {
+            const uTrip = document.createElement("p")
+            uTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
+            uTrip.label = 'Upcoming trip information'
+            uTrip.className = 'Upcoming Trip'
+            pom.upComingTrip.appendChild(uTrip)
+        })
     }
 }
 function viewPending (userID,pom) {
