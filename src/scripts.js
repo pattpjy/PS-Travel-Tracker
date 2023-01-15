@@ -19,9 +19,8 @@ const pageObj = {
     pastTrip: document.querySelector('#past-trip'),
     upComingTrip: document.querySelector('#upcoming-trip'),
     pendingTrip:document.querySelector('#pending-trip'),
+    ytdCost: document.querySelector('#ytd-cost')
 }
-
-
 
 //event listerner
 
