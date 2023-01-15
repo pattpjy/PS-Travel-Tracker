@@ -5,7 +5,31 @@
 import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+
+import  onload from './controller'
+
+//MVC = THIS IS MY VIEW
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+// query selector //
+
+// change to obj
+const pageObj = {
+    userName: document.querySelector('#user-name'),
+    pastTrip: document.querySelector('#past-trip'),
+    upComingTrip: document.querySelector('#upcoming-trip'),
+    pendingTrip:document.querySelector('#pending-trip'),
+}
+
+
+
+//event listerner
+
+window.addEventListener('load', function(event){
+    onload(event,pageObj)
+})
+
+
+
+
+
