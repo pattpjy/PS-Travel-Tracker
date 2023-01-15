@@ -8,7 +8,7 @@ import destinations from './data/data-destination'
 
 class TripRepo {
     constructor (trips,destiRepo) {
-        this.tripData = trips.map(el => new Trip(el))
+        this.tripData = trips.map(el => new Trip(el)) // array of trip object
         this.destiRepo = destiRepo
         this.agentsFeePct = .10
     }
@@ -74,7 +74,7 @@ class TripRepo {
             //estimatedFlightCostPerPerson * trips.travelers
         // return a single number
 
-
+//method to create newTrip
 
 
 }

@@ -4,15 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet"
+      
   <title>Travel Tracker</title>
 </head>
 <body class="dashboard">
   <h1>Let's plan a trip</h1>
   <section label="display user name"><p id="user-name"></p></section>
-  <section id="past-trip" label="show past trip"><h2>Past trip</h2></section>
+  <section label="show past trip"><h2 id="past-trip">Past trip</h2></section>
   <section id="upcoming-trip" label="show upcoming trip">Upcoming Trip</section>
   <section id="pending-trip" label="show pending trip">Pending approvel Trip</section>
   <section id="ytd-cost" label="show year to date trip cost">Year-To-Date Cost</section>
+  <form class="user-trip-request">
+    <h2 class="user-request-title">Requesting Trip:</h2>
+    <div class="user-input-container">
+      <label for="myDate">Choose a Date: </label>
+      <input type="date" id="myDate" />
+      <label for="duration"><strong> Duration:</strong></label>
+      <input type="number" name="duration" min="1" placeholder="Duration" id="trip-duration" class="trip-duration">
+      <label for="No. of traveler"><strong> No. of Traveler:</strong></label>
+      <input type="number" name="NO. of traveler" min="1" placeholder="No. of Traveler" id="numTraveler" class="Num-Traveler">
+    </div>
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
