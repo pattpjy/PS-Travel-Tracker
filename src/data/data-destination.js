@@ -1,6 +1,7 @@
-destinations: [
+
+const destinations = [
     {
-    id: 1,
+    id: 25,
     destination: "Lima, Peru",
     estimatedLodgingCostPerDay: 70,
     estimatedFlightCostPerPerson: 400,
@@ -8,7 +9,7 @@ destinations: [
     alt: "overview of city buildings with a clear sky"
     },
     {
-    id: 2,
+    id: 22,
     destination: "Stockholm, Sweden",
     estimatedLodgingCostPerDay: 100,
     estimatedFlightCostPerPerson: 780,
@@ -79,3 +80,5 @@ destinations: [
     image: "https://images.unsplash.com/photo-1535776142635-8fa180c46af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2756&q=80"
     },
 ]
+
+export default destinations

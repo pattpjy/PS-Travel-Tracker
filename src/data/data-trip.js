@@ -1,4 +1,4 @@
-const trips= [
+const trips = [
     {
     id: 1,
     userID: 44,
@@ -21,7 +21,7 @@ const trips= [
     },
     {
     id: 3,
-    userID: 3,
+    userID: 35,
     destinationID: 22,
     travelers: 4,
     date: "2022/05/22",
@@ -41,10 +41,10 @@ const trips= [
     },
     {
     id: 5,
-    userID: 42,
+    userID: 44,
     destinationID: 29,
     travelers: 3,
-    date: "2022/04/30",
+    date: "2023/04/30",
     duration: 18,
     status: "approved",
     suggestedActivities: [ ]
@@ -81,7 +81,7 @@ const trips= [
     },
     {
     id: 9,
-    userID: 24,
+    userID: 9,
     destinationID: 19,
     travelers: 5,
     date: "2022/12/19",
@@ -94,9 +94,10 @@ const trips= [
     userID: 9,
     destinationID: 50,
     travelers: 6,
-    date: "2022/07/23",
+    date: "2023/07/23",
     duration: 17,
-    status: "approved",
+    status: "pending",
     suggestedActivities: [ ]
     },
 ]
+export default trips

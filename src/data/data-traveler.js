@@ -26,3 +26,5 @@ const travelers = [
     travelerType: "thrill-seeker"
     },
  ]
+
+ export default travelers

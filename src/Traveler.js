@@ -6,6 +6,7 @@ class Traveler  {
         this.name = data.name,
         this.travelerType = data.travelerType
     }
+
 }
 
 export default Traveler
