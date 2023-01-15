@@ -54,13 +54,13 @@ class TripRepo {
         const upToNowTrips = this.getPastTripsByUserID(userId)
         let sum = 0
         const calc = upToNowTrips.forEach((trip) => {
-            console.log(trip.duration,tripDesti.getDestinationById(trip.destinationID).estimatedLodgingCostPerDay)
+           
         let a = (trip.travelers * tripDesti.getDestinationById(trip.destinationID).estimatedFlightCostPerPerson)
         let b = (trip.duration * tripDesti.getDestinationById(trip.destinationID).estimatedLodgingCostPerDay)
-        console.log(sum+= (a+b))
+       
         return sum+(a+b)
         })
-    console.log(sum)
+  
     return sum
     }
     //loop thru this.tripData
@@ -71,9 +71,14 @@ class TripRepo {
             //estimatedFlightCostPerPerson * trips.travelers
         // return a single number
 
-addAgentFee() {
-    return 'hello'
+addAgentFee(amount) {
+    return amount* .10
     // add $fee = a trip cost * .10
+}
+calcTotalCostCurrYear(userId) {
+    const tripCost = this.calcTripCostCurrYear(userId)
+    const totalCost = tripCost + this.addAgentFee(tripCost)
+    return totalCost
 }
 
 }

@@ -30,9 +30,14 @@ describe("Trip Repository", () => {
       expect(tripRepo.getPendingTripByUserID(9)[0].id).to.equal(10);
     });
 
-    it.only("Should return a sum of trips cost given userId", function () {
+    it("Should return a sum of trips cost given userId", function () {
       expect(tripRepo.calcTripCostCurrYear(35)).to.equal(8080);
     });
+
+
+    it.only("Should return trips cost plus agent fee current year to date given userId", function () {
+      expect(tripRepo.calcTotalCostCurrYear(35)).to.equal(8888);
+    })
 
     // DO NOT FORGET SAD PATH//
   });
