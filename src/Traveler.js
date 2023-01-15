@@ -7,13 +7,6 @@ class Traveler  {
         this.name = data.name,
         this.travelerType = data.travelerType
     }
-    getTravelerByID(travelerId) {
-        const travelerFound = travelers.find((obj)=> {
-            return obj.id === travelerId
-        })
-        
-        return travelerFound
-    }
 }
 
 

@@ -35,7 +35,7 @@ describe("Trip Repository", () => {
     });
 
 
-    it.only("Should return trips cost plus agent fee current year to date given userId", function () {
+    it("Should return trips cost plus agent fee current year to date given userId", function () {
       expect(tripRepo.calcTotalCostCurrYear(35)).to.equal(8888);
     })
 

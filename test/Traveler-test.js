@@ -21,7 +21,5 @@ describe.only("Traveler Repository", () => {
         expect(traveler.id).to.equal(1);
       });
 
-    it('should return traveler object given ID', function (){
-      expect(traveler.getTravelerByID(1).name).to.equal("Ham Leadbeater")
-    })
+    
 })
