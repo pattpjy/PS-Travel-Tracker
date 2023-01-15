@@ -11,9 +11,12 @@ class DestiRepo {
     }
     // method to find destination by ID
     getDestinationById(destId) {
-        const destiFound = this.destiData.filter((obj)=> {
+        const destiFound = this.destiData.find((obj)=> {
             return obj.id === destId
         })
+        
         return destiFound
     }
 }
+
+export default DestiRepo

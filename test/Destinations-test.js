@@ -2,9 +2,19 @@ import { expect } from "chai";
 import destinations from "../src/data/data-destination"
 import Destination from "../src/Destinations"
 
-describe("Destination Repository", () => {
+describe("Destination class", () => {
     let destination;
- 
+ describe("#constructor", () => {
+  it("instantiates data correctly when alt text is provided", {
+    // Create the destination
+    // Confirm it has the right data
+
+  })
+  it("instantiates correctly when alt text is not provided", {
+    // create the desintation
+    // confirm
+  })
+ })
     beforeEach(() => {
         destination = new Destination(destinations[0]);
       });
