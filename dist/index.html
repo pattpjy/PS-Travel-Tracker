@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Travel Tracker</title>
 </head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
+<body class="dashboard">
+  <h1>Let's plan a trip</h1>
+  <section label="display user name"><p id="user-name"></p></section>
+  <section id="past-trip" label="show past trip"><h2>Past trip</h2></section>
+  <section id="upcoming-trip" label="show upcoming trip">Upcoming Trip</section>
+  <section id="pending-trip" label="show pending trip">Pending approvel Trip</section>
+  <section id="ytd-cost" label="show year to date trip cost">Year-To-Date Cost</section>
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>

@@ -7,8 +7,10 @@ import destinations from './data/data-destination'
 
 
 class TripRepo {
-    constructor (trips) {
+    constructor (trips,destiRepo) {
         this.tripData = trips.map(el => new Trip(el))
+        this.destiRepo = destiRepo
+        this.agentsFeePct = .10
     }
 
 //All of my trips (past, upcoming and pending)
@@ -50,36 +52,30 @@ class TripRepo {
 }
 
     calcTripCostCurrYear(userId) { // could use a reduce
-        const tripDesti = new DestiRepo(destinations)
+        
         const upToNowTrips = this.getPastTripsByUserID(userId)
         let sum = 0
         const calc = upToNowTrips.forEach((trip) => {
-           
-        let a = (trip.travelers * tripDesti.getDestinationById(trip.destinationID).estimatedFlightCostPerPerson)
-        let b = (trip.duration * tripDesti.getDestinationById(trip.destinationID).estimatedLodgingCostPerDay)
+
+        let a = (trip.travelers * this.destiRepo.getDestinationById(trip.destinationID).estimatedFlightCostPerPerson)
+        let b = (trip.duration * this.destiRepo.getDestinationById(trip.destinationID).estimatedLodgingCostPerDay)
        
-        return sum+(a+b)
+        return sum += (a+b)
         })
+        
   
-    return sum
+    return sum * (1+this.agentsFeePct)
     }
     //loop thru this.tripData
         //filter by userId
-    //for each trips and  loop destination data
+    //for each trips and   loop destination data
         //if destinationID match
             // estimatedLodgingCostPerDay * trips.duration
             //estimatedFlightCostPerPerson * trips.travelers
         // return a single number
 
-addAgentFee(amount) {
-    return amount* .10
-    // add $fee = a trip cost * .10
-}
-calcTotalCostCurrYear(userId) {
-    const tripCost = this.calcTripCostCurrYear(userId)
-    const totalCost = tripCost + this.addAgentFee(tripCost)
-    return totalCost
-}
+
+
 
 }
 
