@@ -29,7 +29,10 @@ describe("Trip Repository", () => {
     it("Should return pending trips data given userId", function () {
       expect(tripRepo.getPendingTripByUserID(9)[0].id).to.equal(10);
     });
-    // it("Should return friends firsts names", function () {
-    //   expect(userRepo.getFriendData([1, 2])).to.deep.equal("Luisa, Jarvis");
-    // });
+
+    it.only("Should return a sum of trips cost given userId", function () {
+      expect(tripRepo.calcTripCostCurrYear(35)).to.equal(8080);
+    });
+
+    // DO NOT FORGET SAD PATH//
   });

@@ -21,7 +21,7 @@ const trips = [
     },
     {
     id: 3,
-    userID: 3,
+    userID: 35,
     destinationID: 22,
     travelers: 4,
     date: "2022/05/22",
