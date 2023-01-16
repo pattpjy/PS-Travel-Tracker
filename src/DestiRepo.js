@@ -17,6 +17,9 @@ class DestiRepo {
         
         return destiFound
     }
+    getAll() {
+        return this.destiData
+    }
 }
 
 export default DestiRepo

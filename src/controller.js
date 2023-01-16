@@ -7,7 +7,6 @@ import travelers from './data/data-traveler'; // should be in controller?? also 
 
 import { fetchAll } from './apiCall'
 
-// use local api
 let travelerData
 let tripData
 let destiData
@@ -20,7 +19,7 @@ fetchAll()
     console.log(data)
     travelerData = new travelerRepo(data[0].travelers)
     destiData = new DestiRepo(data[2].destinations)
-    tripData = new TripRepo(data[1].trips,destiData)
+    tripData = new TripRepo(data[1].trips, destiData )
 })
 
 
@@ -33,6 +32,7 @@ function onLoad (event,pom) {
     viewUpcomingTrip(50,pom)
     viewPending(50,pom)
     viewYTDCost(50,pom)
+    showDestinationList(pom)
 }
 
 function showUserInfo (userID,pom) {
@@ -56,8 +56,6 @@ function viewPastTrip (userID,pom) {
             pTrip.className = 'pastTrip'
             pom.pastTrip.appendChild(pTrip)
         })
-        
-        
     }
 }
 
@@ -76,6 +74,7 @@ function viewUpcomingTrip (userID,pom) {
         })
     }
 }
+
 function viewPending (userID,pom) {
     const pendingTrips = tripData.getPendingTripByUserID(userID)
     console.log(pendingTrips)
@@ -91,4 +90,29 @@ function viewYTDCost(userID,pom){
     const ytdCost = tripData.calcTripCostCurrYear(userID)
     pom.ytdCost.innerText = `YTD Cost: ${ytdCost}`
 }
-export default onLoad
+
+function showDestinationList(pom){
+    return destiData.getAll().forEach((el)=>{
+        const addOption = document.createElement('option')
+        addOption.value = el.destination
+        addOption.innerText = el.destination
+        pom.destinationList.appendChild(addOption)
+    })
+}
+  
+function submitForm () {
+    const formData = new FormData(e.target);
+    const requestNewTrip = {
+      id: tripData.slice(-1) + 1,
+      name: formData.get('name'),
+      userID: 44,
+      destinationID: 49,
+      travelers: 1,
+      date: "2022/09/16",
+      duration: 8,
+      status: "approved",
+      suggestedActivities: [ ]
+    }
+}
+
+export default onLoad  ;

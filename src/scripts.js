@@ -6,7 +6,7 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 
-import  onload from './controller'
+import onLoad from './controller'
 
 //MVC = THIS IS MY VIEW
 
@@ -19,16 +19,27 @@ const pageObj = {
     pastTrip: document.querySelector('#past-trip'),
     upComingTrip: document.querySelector('#upcoming-trip'),
     pendingTrip:document.querySelector('#pending-trip'),
-    ytdCost: document.querySelector('#ytd-cost')
+    ytdCost: document.querySelector('#ytdCost'),
+    destinationList: document.querySelector('#listDestination'),
+    tripReqForm: document.querySelector('#userTripRequest'),
+    formDate: document.querySelector('#myDate'),
+    formDuration: document.querySelector('#tripDuration'),
+    formTraveler: document.querySelector('#numTraveler'),
+    formDestination: document.querySelector('#listDestination'),
 }
 
 //event listerner
 
 window.addEventListener('load', function(event){
-    onload(event,pageObj)
+    onLoad(event,pageObj)
+
 })
 
-
+// form eventLister
+pageObj.tripReqForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    submitForm();
+})
 
 
 
