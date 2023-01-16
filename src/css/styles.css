@@ -1,4 +1,30 @@
 body {
   background-color: rgba(113, 180, 141, .10);
-  color: rgba(38, 15, 38, 1)
+  color: rgba(38, 15, 38, 1);
+  font-family: 'Nunito', sans-serif;
+}
+p {
+  font-size: medium;
+}
+.user-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items:stretch;
+  justify-content:space-around;
+}
+
+.cost-ytd{
+  border:rgba(38, 15, 38, 1) solid 2px ;
+  border-radius: 3px;
+  padding: 3px;
+  text-align: center;
+}
+#reqEst {
+  visibility:hidden;
 }

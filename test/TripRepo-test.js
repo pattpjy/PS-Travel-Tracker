@@ -39,5 +39,22 @@ describe.only("Trip Repository", () => {
       expect(tripRepo.calcTripCostCurrYear(35)).to.equal(8888);
     });
 
+    //unit test  createNewID
+    //unit test createNewTrip
+    //unit test calcEstCost
+    it("Should return a estimate cost given input parameter", function () {
+      const testData =  {
+        id: 3,
+        destination: "Sydney, Austrailia",
+        estimatedLodgingCostPerDay: 130,
+        estimatedFlightCostPerPerson: 950,
+        image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+        alt: "opera house and city buildings on the water with boats"
+        }
+
+
+      expect(tripRepo.calcEstCost(3,3,3)).to.equal(3564);
+    });
+
     // DO NOT FORGET SAD PATH//
   });

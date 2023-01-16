@@ -8,7 +8,7 @@ import destinations from './data/data-destination'
 
 class TripRepo {
     constructor (trips,destiRepo) {
-        this.tripData = trips.map(el => new Trip(el))
+        this.tripData = trips.map(el => new Trip(el)) // array of trip object
         this.destiRepo = destiRepo
         this.agentsFeePct = .10
     }
@@ -44,7 +44,7 @@ class TripRepo {
     getPendingTripByUserID(userId) {
     //loop thru this.tripData 
         //filter by userId and status === pending
-        //return trips object 
+        //return trips object  
     const pendingTrips = this.tripData.filter((el) => {
         return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === false && el.status === "pending"
     })
@@ -73,9 +73,22 @@ class TripRepo {
             // estimatedLodgingCostPerDay * trips.duration
             //estimatedFlightCostPerPerson * trips.travelers
         // return a single number
+// method for finding the last in the array
+    createNewID () {
+        return this.tripData.sort((a,b) => b.id - a.id)[0].id + 1
+    }
+//method to create newTrip
 
-
-
+    createNewTrip (input) {
+        const newTrip = new Trip (input)
+        this.tripData.push(newTrip)
+    }
+// method to let user calc a trip cost 
+    calcEstCost (durationInput, numTravelerInput, destinationInput) {
+        const durationCost = durationInput * this.destiRepo.getDestinationById(destinationInput).estimatedLodgingCostPerDay
+        const travelersCost = numTravelerInput * this.destiRepo.getDestinationById(destinationInput).estimatedFlightCostPerPerson
+        return (( durationCost + travelersCost ) * (1 + this.agentsFeePct)).toFixed()*1
+    }
 
 }
 
