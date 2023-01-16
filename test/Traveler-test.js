@@ -2,7 +2,7 @@ import { expect } from "chai";
 import travelers from "../src/data/data-traveler"
 import Traveler from "../src/Traveler"
 
-describe.only("Traveler Repository", () => {
+describe("Traveler Repository", () => {
     let traveler;
  
     beforeEach(() => {
