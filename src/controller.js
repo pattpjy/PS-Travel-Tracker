@@ -115,8 +115,8 @@ function showDestinationList(pom){
     })
 }
   
-function submitForm (e) {
-    const formData = new FormData(e);
+function submitForm (pom) {
+    const formData = new FormData(pom.tripReqForm);
     const findDestinationID = destiData.getDestinationByName(formData.get('destination')).id
     
     const requestNewTrip = {
@@ -132,6 +132,12 @@ function submitForm (e) {
     
     postNewTrip(requestNewTrip).then(data => {
         tripData.createNewTrip(requestNewTrip)
+        const estCost = tripData.calcEstCost(requestNewTrip.duration,requestNewTrip.travelers,requestNewTrip.destinationID)
+        
+       
+        pom.reqTripCostEst.innerText = `Request Trip Eatimate Cost: ${estCost} `
+        pom.reqTripCostEst.style.visibility = 'visible'
+
     })
     
 }

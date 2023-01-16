@@ -25,3 +25,6 @@ p {
   padding: 3px;
   text-align: center;
 }
+#reqEst {
+  visibility:visible;
+}

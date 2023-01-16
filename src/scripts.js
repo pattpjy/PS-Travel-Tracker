@@ -26,6 +26,7 @@ const pageObj = {
     formDuration: document.querySelector('#tripDuration'),
     formTraveler: document.querySelector('#numTraveler'),
     formDestination: document.querySelector('#listDestination'),
+    reqTripCostEst: document.querySelector('#reqEst')
 }
 
 //event listerner
@@ -38,7 +39,9 @@ window.addEventListener('load', function(event){
 // form eventLister
 pageObj.tripReqForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    submitForm(pageObj.tripReqForm);
+    submitForm(pageObj);
+    //refactor line 41 parameter to just pafeObj, and change sunmitForm(pom) 
+
 })
 
 

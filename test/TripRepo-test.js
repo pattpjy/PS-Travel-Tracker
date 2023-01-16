@@ -53,7 +53,7 @@ describe.only("Trip Repository", () => {
         }
 
 
-      expect(tripRepo.calcEstCost(3,3,"Sydney, Austrailia")).to.equal(3564);
+      expect(tripRepo.calcEstCost(3,3,3)).to.equal(3564);
     });
 
     // DO NOT FORGET SAD PATH//
