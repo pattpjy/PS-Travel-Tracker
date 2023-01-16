@@ -1,38 +1,53 @@
 //MVC = THIS IS MY COMTROLLER
-
+import * as dayjs from "dayjs"
 import TripRepo from './TripRepo'
 import DestiRepo from './DestiRepo'
 import travelerRepo from './TravelerRepo';
 import travelers from './data/data-traveler'; // should be in controller?? also need to be api local
 
-import { fetchAll } from './apiCall'
+import { fetchAll , postNewTrip } from './apiCall'
 
 let travelerData
 let tripData
 let destiData
 
+const activeUser = 50
 
 
 // makes an API call // this is an arr of dataset obj trips, destination,traveller 
 fetchAll()
 .then((data)=> {
-    console.log(data)
+   
     travelerData = new travelerRepo(data[0].travelers)
     destiData = new DestiRepo(data[2].destinations)
     tripData = new TripRepo(data[1].trips, destiData )
+    console.log(tripData)
 })
+
+
+
+
+
 
 
 //function
 // pom is parameter for pageObj in VIEW - so I can pass it around without having to make a lot of parameter
 
 function onLoad (event,pom) {
-    showUserInfo(50,pom),
-    viewPastTrip(50,pom),
-    viewUpcomingTrip(50,pom)
-    viewPending(50,pom)
-    viewYTDCost(50,pom)
+    fetchAll()
+.then((data)=> {
+   
+    travelerData = new travelerRepo(data[0].travelers)
+    destiData = new DestiRepo(data[2].destinations)
+    tripData = new TripRepo(data[1].trips, destiData )
+    showUserInfo(activeUser,pom),
+    viewPastTrip(activeUser,pom),
+    viewUpcomingTrip(activeUser,pom)
+    viewPending(activeUser,pom)
+    viewYTDCost(activeUser,pom)
     showDestinationList(pom)
+})
+    
 }
 
 function showUserInfo (userID,pom) {
@@ -81,7 +96,7 @@ function viewPending (userID,pom) {
     if(pendingTrips.length === 0){
         pom.pendingTrip.innerText = "No pending trip"
     } else {
-        pom.pendingTrip.innerText = upComingTrips
+        pom.pendingTrip.innerText = pendingTrips
     }
 
 }
@@ -100,19 +115,25 @@ function showDestinationList(pom){
     })
 }
   
-function submitForm () {
-    const formData = new FormData(e.target);
+function submitForm (e) {
+    const formData = new FormData(e);
+    const findDestinationID = destiData.getDestinationByName(formData.get('destination')).id
+    
     const requestNewTrip = {
-      id: tripData.slice(-1) + 1,
-      name: formData.get('name'),
-      userID: 44,
-      destinationID: 49,
-      travelers: 1,
-      date: "2022/09/16",
-      duration: 8,
-      status: "approved",
+      id: tripData.createNewID(),
+      userID: activeUser,
+      destinationID: findDestinationID,
+      travelers: formData.get('NO. of traveler'),
+      date: dayjs(formData.get('myDate')).format('YYYY/MM/DD'),
+      duration: formData.get('duration'),
+      status: "pending",
       suggestedActivities: [ ]
     }
+    
+    postNewTrip(requestNewTrip).then(data => {
+        tripData.createNewTrip(requestNewTrip)
+    })
+    
 }
 
-export default onLoad  ;
+export { onLoad , submitForm } ;

@@ -6,7 +6,7 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 
-import onLoad from './controller'
+import { onLoad , submitForm } from './controller'
 
 //MVC = THIS IS MY VIEW
 
@@ -38,7 +38,7 @@ window.addEventListener('load', function(event){
 // form eventLister
 pageObj.tripReqForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    submitForm();
+    submitForm(pageObj.tripReqForm);
 })
 
 
