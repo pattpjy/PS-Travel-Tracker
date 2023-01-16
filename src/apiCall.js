@@ -20,18 +20,18 @@ const fetchUserData = (url, object) => {
 // post request
 
 
-const requestNewTrip = (newTrip) => {
-  fetch("http://localhost:3001/api/v1/trips", {
+const postNewTrip = (newTrip) => {
+  return fetch("http://localhost:3001/api/v1/trips", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(newTrip)
   })
   .then((response) => {
-    if (response.ok) { 
-     return response.json();
-    }
-    throw Error('Request Failed, missing input fields')
+    if (!response.ok) { 
+      throw Error('Request Failed')
+    } 
+    return response.json();
   })
 }
-  export { fetchAll };
+  export { fetchAll , postNewTrip};
    
