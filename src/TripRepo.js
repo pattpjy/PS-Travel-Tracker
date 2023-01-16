@@ -44,7 +44,7 @@ class TripRepo {
     getPendingTripByUserID(userId) {
     //loop thru this.tripData 
         //filter by userId and status === pending
-        //return trips object 
+        //return trips object  
     const pendingTrips = this.tripData.filter((el) => {
         return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === false && el.status === "pending"
     })
@@ -84,6 +84,11 @@ class TripRepo {
         this.tripData.push(newTrip)
     }
 // method to let user calc a trip cost 
+    calcEstCost (durationInput, numTravelerInput, destinationInput) {
+        const durationCost = durationInput * this.destiRepo.getDestinationByName(destinationInput).estimatedLodgingCostPerDay
+        const travelersCost = numTravelerInput * his.destiRepo.getDestinationByName(destinationInput).estimatedLodgingCostPerDay
+        return ( durationCost + travelersCost ) * (1 + this.agentsFeePct)
+    }
 
 }
 
