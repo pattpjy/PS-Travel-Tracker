@@ -20,6 +20,10 @@ class DestiRepo {
     getAll() {
         return this.destiData
     }
+    getDestinationByName(name) {
+        const destiFound = this.destiData.find((obj)=>obj.destination === name)
+        return destiFound
+    }
 }
 
 export default DestiRepo
