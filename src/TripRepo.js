@@ -73,9 +73,17 @@ class TripRepo {
             // estimatedLodgingCostPerDay * trips.duration
             //estimatedFlightCostPerPerson * trips.travelers
         // return a single number
-
+// method for finding the last in the array
+    createNewID () {
+        return this.tripData.sort((a,b) => b.id - a.id)[0].id + 1
+    }
 //method to create newTrip
 
+    createNewTrip (input) {
+        const newTrip = new Trip (input)
+        this.tripData.push(newTrip)
+    }
+// method to let user calc a trip cost 
 
 }
 
