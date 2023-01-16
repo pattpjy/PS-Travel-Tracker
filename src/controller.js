@@ -96,9 +96,14 @@ function viewPending (userID,pom) {
     if(pendingTrips.length === 0){
         pom.pendingTrip.innerText = "No pending trip"
     } else {
-        pom.pendingTrip.innerText = pendingTrips
+        pendingTrips.forEach((tripObj) => {
+            const uTrip = document.createElement("p")
+            uTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
+            uTrip.label = 'Upcoming trip information'
+            uTrip.className = 'Upcoming Trip'
+            pom.pendingTrip.appendChild(uTrip)
+        })
     }
-
 }
 
 function viewYTDCost(userID,pom){
