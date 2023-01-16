@@ -86,8 +86,8 @@ class TripRepo {
 // method to let user calc a trip cost 
     calcEstCost (durationInput, numTravelerInput, destinationInput) {
         const durationCost = durationInput * this.destiRepo.getDestinationByName(destinationInput).estimatedLodgingCostPerDay
-        const travelersCost = numTravelerInput * his.destiRepo.getDestinationByName(destinationInput).estimatedLodgingCostPerDay
-        return ( durationCost + travelersCost ) * (1 + this.agentsFeePct)
+        const travelersCost = numTravelerInput * this.destiRepo.getDestinationByName(destinationInput).estimatedFlightCostPerPerson
+        return (( durationCost + travelersCost ) * (1 + this.agentsFeePct)).toFixed()*1
     }
 
 }
