@@ -6,7 +6,7 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 
-import { onLoad , submitForm } from './controller'
+import { logInAuthPrompt , submitForm , logInAuth } from './controller'
 
 //MVC = THIS IS MY VIEW
 
@@ -26,13 +26,27 @@ const pageObj = {
     formDuration: document.querySelector('#tripDuration'),
     formTraveler: document.querySelector('#numTraveler'),
     formDestination: document.querySelector('#listDestination'),
-    reqTripCostEst: document.querySelector('#reqEst')
+    reqTripCostEst: document.querySelector('#reqEst'),
+    logInPromp: document.querySelector('#logInPrompt'),
+    showDashboard : document.querySelector('#dashBoard'),
+    logInForm : document.querySelector('#logInForm'),
+    logInBtn : document.querySelector('#authButton'),
+    alertMsg: document.querySelector('#alertMsg')
+
+
 }
 
 //event listerner
 
-window.addEventListener('load', function(event){
-    onLoad(event,pageObj)
+// window.addEventListener('load', function(){
+//     logInAuthPrompt(pageObj)
+
+// })
+
+// Login listener
+pageObj.logInBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    logInAuth(pageObj)
 
 })
 
@@ -43,6 +57,8 @@ pageObj.tripReqForm.addEventListener('submit', (e) => {
     //refactor line 41 parameter to just pafeObj, and change sunmitForm(pom) 
 
 })
+
+
 
 
 

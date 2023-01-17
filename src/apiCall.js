@@ -1,13 +1,17 @@
 const fetchUserData = (url, object) => {
     return fetch(url, object).then((response) => {
       if (!response.ok) {
-        throw new Error("Unable To Post Your Data. Try Later.");
+        throw new Error("Unable To Get Your Data. Try Later.");
       }
       return response.json();
     });
   };
 
 // get request
+ const fetchUser = (inputID) => {
+  return fetchUserData("http://localhost:3001/api/v1/travelers/" + inputID)
+ }
+
   const fetchAll = () => {
     return Promise.all([
       fetchUserData("http://localhost:3001/api/v1/travelers"),
@@ -33,5 +37,5 @@ const postNewTrip = (newTrip) => {
     return response.json();
   })
 }
-  export { fetchAll , postNewTrip};
+  export { fetchAll , postNewTrip, fetchUser};
    

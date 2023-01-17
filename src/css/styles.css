@@ -26,6 +26,31 @@ p {
   margin: 5px;
   text-align: center;
 }
+
+.logInBox {
+  width: 300px;
+  height: 200px;
+  background-color: gray;
+  box-shadow: 5px;
+  visibility: visible;
+  
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
 #reqEst {
   visibility:hidden;
+}
+
+
+.dashboard {
+  visibility: hidden;
+}
+.req {
+  color: red;
+}
+
+*:required {
+  background-color: rgba(113, 180, 141, .50);
 }
