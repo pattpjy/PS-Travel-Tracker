@@ -56,6 +56,37 @@ An application to manage and track different trips for users and a travel agency
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Architecture -->
+Architecture Model View Controller Pattern
+```mermaid
+  classDiagram
+   User <--> View
+   note for View "querySelector as Obj
+                  input, eventListerner"
+   View <--> Controller
+   Controller <--> API 
+   Controller <--> Model
+  
+   Controller: controller.js
+   User: index.html
+    class View{
+        script.js
+        + promtLogIn
+        + login method
+    }
+   class Model{
+      tripsRepo.js 
+      DestiRepo.js
+   }
+```
+```mermaid
+  classDiagram
+   Model_Contain-->tripsRepo
+   tripsRepo--> DestiRepo
+   tripsRepo--> trip_class
+   tripsRepo--> traveler_class
+   DestiRepo--> Destination_class
+```
 <!-- ROADMAP -->
 
 See the [open issues](https://github.com/pattpjy/PS-Travel-Tracker/issues) for a full list of proposed features (and known issues).
