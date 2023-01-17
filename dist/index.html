@@ -8,40 +8,53 @@
       
   <title>Travel Tracker</title>
 </head>
-<body class="dashboard">
-  <h1>Let's plan a trip</h1>
-  <section label="display user name"><p id="userName"></p></section>
-  <div class="main">
-    <div class="left-column"> 
-      <section class="past-trip" label="show past trip"><h2 id="pastTrip">Past trip</h2></section>
-      <section class="upcoming-trip" label="show upcoming trip"><h2 id="upcomingTrip"">Upcoming Trip</h2></section>
-      <section class="pending-trip" label="show pending trip"><h2 id="pendingTrip"">Pending approvel trip</h2></section>
-      <section class="cost-ytd" id="ytdCost" label="show year to date trip cost">Year-To-Date Cost
-      </section>
-      <section id="reqEst" label="Request Trip Eatimate Cost" >Request Trip Eatimate Cost</section>
-    </div>
-    <div class="right-column">
-      <form label="user's trip request" class="user-trip-request" id="userTripRequest">
-        <h2 class="user-request-title">Requesting Trip:</h2>
-        <div class="user-input-container">
-          <label for="myDate">Choose a Date: </label>
-          <input type="date" name="myDate" id="myDate"/>
-          <label for="duration"><strong> Duration:</strong></label>
-          <input type="number" name="duration" min="1" placeholder="Duration" id="tripDuration" class="trip-duration">
-          <label for="No. of traveler"><strong> No. of Traveler:</strong></label>
-          <input type="number" name="NO. of traveler" label="NO. of traveler" min="1" placeholder="No. of Traveler" id="numTraveler" class="Num-Traveler">
-          <form label="list of destinations">
-            <label for="destination"></label>
-            <select for="Choose a destination" name="destination" id="listDestination" >
-              <option value="">Choose a destination:</option>
-            </select>
-          </form>
-          <button class="input-button" id="inputButton" type="submit" id="saveChanges">Submit</button>
-        </div>
-      </form>
+<body>
+  <div id="logInPrompt" class="logInBox">
+    <form class="login-form" id="logInForm" label="Log In">
+      <label for="User ID">userID<span class="req">*</span></label>
+      <input type="text" name="UserID" id="userID" placeholder="traveler1" required/>
+      <label for="password">password <span class="req">*</span></label>
+      <input type="text" name="password" id="password" placeholder="password" required/>
+    </form>
+    <button class="auth-button" id="authButton" type="submit">Submit</button>
+    <p><span class="req" >*</span> - Required field</p>
+    <p id="alertMsg"> . </p>
+
+  </div>
+  <div class="dashboard" id="dashBoard">
+    <h1>Let's plan a trip</h1>
+    <section label="display user name"><p id="userName"></p></section>
+    <div class="main">
+      <div class="left-column"> 
+        <section class="past-trip" label="show past trip"><h2 id="pastTrip">Past trip</h2></section>
+        <section class="upcoming-trip" label="show upcoming trip"><h2 id="upcomingTrip"">Upcoming Trip</h2></section>
+        <section class="pending-trip" label="show pending trip"><h2 id="pendingTrip"">Pending approvel trip</h2></section>
+        <section class="cost-ytd" id="ytdCost" label="show year to date trip cost">Year-To-Date Cost
+        </section>
+        <section id="reqEst" label="Request Trip Eatimate Cost" >Request Trip Eatimate Cost</section>
+      </div>
+      <div class="right-column">
+        <form label="user's trip request" class="user-trip-request" id="userTripRequest">
+          <h2 class="user-request-title">Requesting Trip:</h2>
+          <div class="user-input-container">
+            <label for="myDate">Choose a Date: </label>
+            <input type="date" name="myDate" id="myDate"/>
+            <label for="duration"><strong> Duration:</strong></label>
+            <input type="number" name="duration" min="1" placeholder="Duration" id="tripDuration" class="trip-duration">
+            <label for="No. of traveler"><strong> No. of Traveler:</strong></label>
+            <input type="number" name="NO. of traveler" label="NO. of traveler" min="1" placeholder="No. of Traveler" id="numTraveler" class="Num-Traveler">
+            <form label="list of destinations">
+              <label for="destination"></label>
+              <select for="Choose a destination" name="destination" id="listDestination" >
+                <option value="">Choose a destination:</option>
+              </select>
+            </form>
+            <button class="input-button" id="inputButton" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-  
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 

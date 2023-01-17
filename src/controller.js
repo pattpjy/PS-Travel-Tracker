@@ -5,49 +5,68 @@ import DestiRepo from './DestiRepo'
 import travelerRepo from './TravelerRepo';
 import travelers from './data/data-traveler'; // should be in controller?? also need to be api local
 
-import { fetchAll , postNewTrip } from './apiCall'
+import { fetchAll , postNewTrip, fetchUser } from './apiCall'
 
 let travelerData
 let tripData
 let destiData
 
-const activeUser = 50
+let activeUser = 50
 
 
 // makes an API call // this is an arr of dataset obj trips, destination,traveller 
-fetchAll()
-.then((data)=> {
-   
-    travelerData = new travelerRepo(data[0].travelers)
-    destiData = new DestiRepo(data[2].destinations)
-    tripData = new TripRepo(data[1].trips, destiData )
-    console.log(tripData)
-})
-
-
-
-
 
 
 
 //function
 // pom is parameter for pageObj in VIEW - so I can pass it around without having to make a lot of parameter
 
-function onLoad (event,pom) {
-    fetchAll()
+function logInAuthPrompt(pom) {
+    
+    pom.logInPromp.visibility = 'visible'
+    logInAuth(pom)
+}
+function logInAuth (pom){
+    // if userID input value match the data doesn throw error, and password === 'password"
+    // reset visibility, pass user ID to active user
+    // fired page render function
+    const formData = new FormData(pom.logInForm)
+    if(formData.get('password') !== 'password'){
+        return pom.alertMsg.innerText = "PASSWORD DO NOT MATCH"
+         
+    } else {
+    return fetchUser(formData.get('UserID').split('traveler')[1])
+        .then((data) =>{
+            activeUser = data.id
+            pom.logInPromp.style.visibility = 'hidden'
+            pom.showDashboard.style.visibility = 'visible'
+            pageRender(pom)
+        })
+        .catch((error) => {
+            pom.alertMsg.innerText = 'TravelerID NOT FOUND'
+            console.log(error.message)
+        })
+    }
+}
+
+
+function pageRender (pom) {
+fetchAll()
 .then((data)=> {
-   
     travelerData = new travelerRepo(data[0].travelers)
     destiData = new DestiRepo(data[2].destinations)
     tripData = new TripRepo(data[1].trips, destiData )
+    updateDashboard (pom)
+    }) 
+}
+
+function updateDashboard (pom) {
     showUserInfo(activeUser,pom),
     viewPastTrip(activeUser,pom),
     viewUpcomingTrip(activeUser,pom)
     viewPending(activeUser,pom)
     viewYTDCost(activeUser,pom)
     showDestinationList(pom)
-})
-    
 }
 
 function showUserInfo (userID,pom) {
@@ -63,7 +82,7 @@ function viewPastTrip (userID,pom) {
     if(pastTrips.length === 0) {
         pom.pastTrip.innerText = "Past Trip : No past trip"
     } else {
-        
+        pom.pastTrip.innerText = ''
         pastTrips.forEach((tripObj) => {
             const pTrip = document.createElement("p")
             pTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
@@ -80,6 +99,7 @@ function viewUpcomingTrip (userID,pom) {
     if(upComingTrips.length === 0){
         pom.upComingTrip.innerText = "No upcoming trip"
     } else {
+        pom.upComingTrip.innerText = ''
         upComingTrips.forEach((tripObj) => {
             const uTrip = document.createElement("p")
             uTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
@@ -96,6 +116,7 @@ function viewPending (userID,pom) {
     if(pendingTrips.length === 0){
         pom.pendingTrip.innerText = "No pending trip"
     } else {
+        pom.pendingTrip.innerText = ''
         pendingTrips.forEach((tripObj) => {
             const uTrip = document.createElement("p")
             uTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
@@ -139,12 +160,13 @@ function submitForm (pom) {
         tripData.createNewTrip(requestNewTrip)
         const estCost = tripData.calcEstCost(requestNewTrip.duration,requestNewTrip.travelers,requestNewTrip.destinationID)
         
-       
         pom.reqTripCostEst.innerText = `Request Trip Eatimate Cost: ${estCost} `
         pom.reqTripCostEst.style.visibility = 'visible'
+
+        updateDashboard (pom)
 
     })
     
 }
 
-export { onLoad , submitForm } ;
+export { logInAuthPrompt , submitForm ,logInAuth } ;
