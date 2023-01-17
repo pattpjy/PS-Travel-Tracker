@@ -24,7 +24,6 @@ class TripRepo {
         //el.date (check with dayJS) is true
     }, [])
     // filter last parameter after call back set to [] instead of undefinded
-    console.log(pastTrip)
     return pastTrip
     //loop thru this.tripData 
         //filter by userId and date < current date
@@ -49,7 +48,7 @@ class TripRepo {
         //return trips object  
     const pendingTrips = this.tripData.filter((el) => {
         return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === false && el.status === "pending"
-    })
+    }, [])
     return pendingTrips
 }
 
@@ -77,7 +76,9 @@ class TripRepo {
         // return a single number
 // method for finding the last in the array
     createNewID () {
+        console.log(this.tripData.sort((a,b) => b.id - a.id)[0].id + 1)
         return this.tripData.sort((a,b) => b.id - a.id)[0].id + 1
+        
     }
 //method to create newTrip
 
