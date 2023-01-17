@@ -5,7 +5,7 @@ import DestiRepo from "../src/DestiRepo";
 import TripRepo from "../src/TripRepo"
 
 
-describe.only("Trip Repository", () => {
+describe("Trip Repository", () => {
     let tripRepo;
     let destRepo;
 
