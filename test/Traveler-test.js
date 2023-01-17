@@ -21,5 +21,4 @@ describe("Traveler Repository", () => {
         expect(traveler.id).to.equal(1);
       });
 
-    
 })

@@ -22,7 +22,8 @@ class TripRepo {
     const pastTrip = this.tripData.filter((el) =>{
         return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === true
         //el.date (check with dayJS) is true
-    })
+    }, [])
+    // filter last parameter after call back set to [] instead of undefinded
     return pastTrip
     //loop thru this.tripData 
         //filter by userId and date < current date
@@ -33,7 +34,7 @@ class TripRepo {
     const upcomingTrips = this.tripData.filter((el) =>{
         return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === false 
         //el.date (check with dayJS) is flase
-    })
+    }, [])
    
     return upcomingTrips
     //loop thru this.tripData 
@@ -47,7 +48,7 @@ class TripRepo {
         //return trips object  
     const pendingTrips = this.tripData.filter((el) => {
         return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === false && el.status === "pending"
-    })
+    }, [])
     return pendingTrips
 }
 
@@ -76,12 +77,14 @@ class TripRepo {
 // method for finding the last in the array
     createNewID () {
         return this.tripData.sort((a,b) => b.id - a.id)[0].id + 1
+        
     }
-//method to create newTrip
+//method to create newTrip to store in memory of TripRepo so I dont have to make another API Call
 
     createNewTrip (input) {
         const newTrip = new Trip (input)
-        this.tripData.push(newTrip)
+        return this.tripData.push(newTrip)
+       
     }
 // method to let user calc a trip cost 
     calcEstCost (durationInput, numTravelerInput, destinationInput) {

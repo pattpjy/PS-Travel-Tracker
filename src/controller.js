@@ -82,7 +82,7 @@ function viewPastTrip (userID,pom) {
     if(pastTrips.length === 0) {
         pom.pastTrip.innerText = "Past Trip : No past trip"
     } else {
-        pom.pastTrip.innerText = ''
+        pom.pastTrip.innerText = 'Past trip'
         pastTrips.forEach((tripObj) => {
             const pTrip = document.createElement("p")
             pTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
@@ -99,7 +99,7 @@ function viewUpcomingTrip (userID,pom) {
     if(upComingTrips.length === 0){
         pom.upComingTrip.innerText = "No upcoming trip"
     } else {
-        pom.upComingTrip.innerText = ''
+        pom.upComingTrip.innerText = 'Upcoming Trip'
         upComingTrips.forEach((tripObj) => {
             const uTrip = document.createElement("p")
             uTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
@@ -116,7 +116,7 @@ function viewPending (userID,pom) {
     if(pendingTrips.length === 0){
         pom.pendingTrip.innerText = "No pending trip"
     } else {
-        pom.pendingTrip.innerText = ''
+        pom.pendingTrip.innerText = 'Pending Trip'
         pendingTrips.forEach((tripObj) => {
             const uTrip = document.createElement("p")
             uTrip.innerText = destiData.getDestinationById(tripObj.destinationID).destination + ", " + tripObj.date
