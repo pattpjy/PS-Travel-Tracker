@@ -10,32 +10,31 @@
 </head>
 <body class="dashboard">
   <h1>Let's plan a trip</h1>
-  <section label="display user name"><p id="user-name"></p></section>
+  <section label="display user name"><p id="userName"></p></section>
   <div class="main">
     <div class="left-column"> 
-      <section label="show past trip"><h2 id="past-trip">Past trip</h2></section>
-      <section id="upcoming-trip" label="show upcoming trip">Upcoming Trip</section>
-      <section id="pending-trip" label="show pending trip">Pending approvel Trip</section>
+      <section class="past-trip" label="show past trip"><h2 id="pastTrip">Past trip</h2></section>
+      <section class="upcoming-trip" label="show upcoming trip"><h2 id="upcomingTrip"">Upcoming Trip</h2></section>
+      <section class="pending-trip" label="show pending trip"><h2 id="pendingTrip"">Pending approvel trip</h2></section>
       <section class="cost-ytd" id="ytdCost" label="show year to date trip cost">Year-To-Date Cost
       </section>
       <section id="reqEst" label="Request Trip Eatimate Cost" >Request Trip Eatimate Cost</section>
     </div>
     <div class="right-column">
-      <form class="user-trip-request" id="userTripRequest">
+      <form label="user's trip request" class="user-trip-request" id="userTripRequest">
         <h2 class="user-request-title">Requesting Trip:</h2>
         <div class="user-input-container">
           <label for="myDate">Choose a Date: </label>
-          <input type="date" name="myDate" id="myDate" />
+          <input type="date" name="myDate" id="myDate"/>
           <label for="duration"><strong> Duration:</strong></label>
           <input type="number" name="duration" min="1" placeholder="Duration" id="tripDuration" class="trip-duration">
           <label for="No. of traveler"><strong> No. of Traveler:</strong></label>
-          <input type="number" name="NO. of traveler" min="1" placeholder="No. of Traveler" id="numTraveler" class="Num-Traveler">
+          <input type="number" name="NO. of traveler" label="NO. of traveler" min="1" placeholder="No. of Traveler" id="numTraveler" class="Num-Traveler">
           <form label="list of destinations">
             <label for="destination"></label>
             <select for="Choose a destination" name="destination" id="listDestination" >
               <option value="">Choose a destination:</option>
             </select>
-            
           </form>
           <button class="input-button" id="inputButton" type="submit" id="saveChanges">Submit</button>
         </div>

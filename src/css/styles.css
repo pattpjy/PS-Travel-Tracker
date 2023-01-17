@@ -19,10 +19,11 @@ p {
   justify-content:space-around;
 }
 
-.cost-ytd{
+.cost-ytd, .upcoming-trip, .pending-trip, .past-trip{
   border:rgba(38, 15, 38, 1) solid 2px ;
   border-radius: 3px;
   padding: 3px;
+  margin: 5px;
   text-align: center;
 }
 #reqEst {

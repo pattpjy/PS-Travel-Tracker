@@ -15,10 +15,10 @@ import { onLoad , submitForm } from './controller'
 
 // change to obj
 const pageObj = {
-    userName: document.querySelector('#user-name'),
-    pastTrip: document.querySelector('#past-trip'),
-    upComingTrip: document.querySelector('#upcoming-trip'),
-    pendingTrip:document.querySelector('#pending-trip'),
+    userName: document.querySelector('#userName'),
+    pastTrip: document.querySelector('#pastTrip'),
+    upComingTrip: document.querySelector('#upcomingTrip'),
+    pendingTrip:document.querySelector('#pendingTrip'),
     ytdCost: document.querySelector('#ytdCost'),
     destinationList: document.querySelector('#listDestination'),
     tripReqForm: document.querySelector('#userTripRequest'),
