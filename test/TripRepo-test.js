@@ -40,7 +40,6 @@ describe.only("Trip Repository", () => {
       expect(tripRepo.getPendingTripByUserID(9)[0].id).to.equal(10);
       expect(tripRepo.getUpcomingTripsByUserID(35).length).to.equal(0);
     });
-    //create test data in here //
    
     it("Should return a YTD cost given userId", function () {
       expect(tripRepo.calcTripCostCurrYear(35)).to.equal(8888);
@@ -52,9 +51,23 @@ describe.only("Trip Repository", () => {
       expect(tripRepo.createNewID()).to.equal(11)
     })
     //unit test createNewTrip
+    it('Should add new trip to tripRepo', function() {
+      const input = {
+        id: 13,
+        userID: 14,
+        destinationID: 12,
+        travelers: 1,
+        date: "2022/02/12",
+        duration: 11,
+        status: "approved",
+        suggestedActivities: [ ]
+        }
+        tripRepo.createNewTrip(input)
+        
+      expect(tripRepo.tripData.length).to.equal(11)
+    })
     //unit test calcEstCost
     it("Should return a estimate cost given input parameter", function () {
-
       expect(tripRepo.calcEstCost(3,3,3)).to.equal(3564);
     });
 

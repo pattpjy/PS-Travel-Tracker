@@ -76,15 +76,15 @@ class TripRepo {
         // return a single number
 // method for finding the last in the array
     createNewID () {
-        console.log(this.tripData.sort((a,b) => b.id - a.id)[0].id + 1)
         return this.tripData.sort((a,b) => b.id - a.id)[0].id + 1
         
     }
-//method to create newTrip
+//method to create newTrip to store in memory of TripRepo so I dont have to make another API Call
 
     createNewTrip (input) {
         const newTrip = new Trip (input)
-        this.tripData.push(newTrip)
+        return this.tripData.push(newTrip)
+       
     }
 // method to let user calc a trip cost 
     calcEstCost (durationInput, numTravelerInput, destinationInput) {
