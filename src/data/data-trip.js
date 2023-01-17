@@ -34,7 +34,7 @@ const trips = [
     userID: 43,
     destinationID: 14,
     travelers: 2,
-    date: "2022/02/25",
+    date: "2023/02/25",
     duration: 10,
     status: "approved",
     suggestedActivities: [ ]

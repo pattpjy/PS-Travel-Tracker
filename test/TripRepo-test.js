@@ -9,10 +9,9 @@ describe.only("Trip Repository", () => {
     let tripRepo;
     let destRepo;
 
+  describe('#constructor', function () {
     beforeEach(() => {
-      destRepo = new DestiRepo(destinations)
       tripRepo = new TripRepo(trips,destRepo);
-      
     });
 
     it("should be a function", function () {
@@ -24,8 +23,13 @@ describe.only("Trip Repository", () => {
      it("Should have properties that holds the tripRepo info", function () {
       expect(tripRepo.tripData).to.deep.equal(trips);
     });
+  })
+
+  describe('#method', function () {
+    destRepo = new DestiRepo(destinations)
     it("Should return past trips data given userId", function () {
       expect(tripRepo.getPastTripsByUserID(44)[0].id).to.equal(1);
+      expect(tripRepo.getPastTripsByUserID(43).length).to.equal(0);
     });
     it("Should return future trips data given userId", function () {
       expect(tripRepo.getUpcomingTripsByUserID(44)[0].id).to.equal(5);
@@ -55,6 +59,13 @@ describe.only("Trip Repository", () => {
 
       expect(tripRepo.calcEstCost(3,3,3)).to.equal(3564);
     });
+
+  })
+    
+
+
+    
+    
 
     // DO NOT FORGET SAD PATH//
   });

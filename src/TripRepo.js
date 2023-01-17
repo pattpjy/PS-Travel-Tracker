@@ -22,7 +22,9 @@ class TripRepo {
     const pastTrip = this.tripData.filter((el) =>{
         return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === true
         //el.date (check with dayJS) is true
-    })
+    }, [])
+    // filter last parameter after call back set to [] instead of undefinded
+    console.log(pastTrip)
     return pastTrip
     //loop thru this.tripData 
         //filter by userId and date < current date
@@ -33,7 +35,7 @@ class TripRepo {
     const upcomingTrips = this.tripData.filter((el) =>{
         return el.userID === userId && dayjs(el.date).isBefore(dayjs()) === false 
         //el.date (check with dayJS) is flase
-    })
+    }, [])
    
     return upcomingTrips
     //loop thru this.tripData 
