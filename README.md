@@ -2,6 +2,8 @@
 
 An application to manage and track different trips for users and a travel agency.  User should see a dashboard page that shows all of user's trips (past, upcoming and pending. And also total amount user have spent on trips this year. User should able to make a trip request by select a date, duration, number of travelers and choose from a list of destinations. After making these selections, user should see an estimated cost (with a 10% travel agent fee) for the trip. Once user submit the trip request, it will show on the dashboard as “pending”.
 
+<img width="902" alt="Screen Shot 2023-04-28 at 12 32 05 AM" src="https://user-images.githubusercontent.com/111454351/235071983-698edb5b-2146-47ee-852c-17ecbfc067a4.png">
+
 ### Built With
 
 - [![Javascript][javascript.js]][javascript-url]
