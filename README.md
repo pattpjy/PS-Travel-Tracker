@@ -56,6 +56,7 @@ An application to manage and track different trips for users and a travel agency
    ```
 9. Close using control + c
 
+To run the application, make sure that npm package is run on version 16 (nvm use 16) and the server is running. 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Architecture -->
