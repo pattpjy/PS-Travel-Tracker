@@ -6,16 +6,16 @@ An application to manage and track different trips for users and a travel agency
 
 ### Built With
 
-- [![Javascript][javascript.js]][javascript-url]
-- [![CSS][css]][css-url]
-- [![HTML][html]][html-url]
-- [![Webpack][webpack]][webpack-url]
-- [![API][api]][api-url]
-- [![Mocha][mocha]][mocha-url]
-- [![Chai][chai]][chai-url]
-- [![Git][git]][git-url]
-- [![GitHub][github]][github-url]
-- [![dayjs][dayjs]][dayjs-url]
+[![Javascript][javascript.js]][javascript-url]
+[![CSS][css]][css-url]
+[![HTML][html]][html-url]
+[![Webpack][webpack]][webpack-url]
+[![API][api]][api-url]
+[![Mocha][mocha]][mocha-url]
+[![Chai][chai]][chai-url]
+[![Git][git]][git-url]
+[![GitHub][github]][github-url]
+[![dayjs][dayjs]][dayjs-url]
 
 ## Getting Started
 
